@@ -1,4 +1,29 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+
+ext {
+  bintrayRepo = 'RippleValidatorEditText'
+  bintrayName = 'RippleValidatorEditText'
+
+  publishedGroupId = 'me.omidh'
+  libraryName = 'RippleValidatorEditText'
+  artifact = 'RippleValidatorEditText'
+
+  libraryDescription = 'An Input box with different validators and ripple transition'
+
+  siteUrl = 'https://github.com/omidheshmatinia/RippleValidatorEditText'
+  gitUrl = 'https://github.com/omidheshmatinia/RippleValidatorEditText.git'
+
+  libraryVersion = '0.0.1'
+
+  developerId = 'omidheshmatinia'
+  developerName = 'Omid Heshmatinia'
+  developerEmail = 'omidheshmatinia@gmail.com'
+
+  licenseName = 'The Apache Software License, Version 2.0'
+  licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+  allLicenses = ["Apache-2.0"]
+}
 
 android {
   compileSdkVersion 25
@@ -8,7 +33,7 @@ android {
     minSdkVersion 11
     targetSdkVersion 25
     versionCode 1
-    versionName "1.0"
+    versionName "0.0.1"
 
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
   }
@@ -28,3 +53,6 @@ dependencies {
   })
   compile 'com.android.support:appcompat-v7:25.3.1'
 }
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'

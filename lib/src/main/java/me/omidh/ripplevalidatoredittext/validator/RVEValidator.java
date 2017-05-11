@@ -8,7 +8,7 @@ import android.support.annotation.NonNull;
 public abstract class RVEValidator {
   /**
    * Error message that the view will display if validation fails.
-   * <p/>
+   *
    * This is protected, so you can change this dynamically in your {@link #isValid(CharSequence)}
    * implementation. If necessary, you can also interact with this via its getter and setter.
    */
