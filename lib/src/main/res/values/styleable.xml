@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <declare-styleable name="RippleValidatorEditText" >
+    <attr name="rve_helperTextSize" format="dimension"/>
+    <attr name="rve_hint" format="string"/>
+    <attr name="rve_font" format="string"/>
+    <attr name="rve_strokeWidth" format="dimension"/>
+    <attr name="rve_normalColor" format="color"/>
+    <attr name="rve_editTextColor" format="color"/>
+    <attr name="rve_errorColor" format="color"/>
+    <attr name="rve_validColor" format="color"/>
+    <attr name="rve_typingColor" format="color"/>
+    <attr name="rve_validateOnFocusLost" format="boolean"/>
+    <attr name="android:inputType"/>
+    <attr name="rve_editTextSize" format="dimension"/>
+    <attr name="rve_topRightCornerRadius" format="dimension"/>
+    <attr name="rve_topLeftCornerRadius" format="dimension"/>
+    <attr name="rve_bottomRightCornerRadius" format="dimension"/>
+    <attr name="rve_bottomLeftCornerRadius" format="dimension"/>
+    <attr name="rve_helperTextGravity" format="enum">
+      <enum name="right" value="5"/>
+      <enum name="left" value="3"/>
+      <enum name="center" value="17"/>
+    </attr>
+    <attr name="rve_editTextGravity" format="enum">
+      <enum name="right" value="5"/>
+      <enum name="left" value="3"/>
+      <enum name="center" value="17"/>
+    </attr>
+  </declare-styleable>
+</resources>
