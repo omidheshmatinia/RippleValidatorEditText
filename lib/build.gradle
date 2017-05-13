@@ -2,12 +2,12 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 
 ext {
-  bintrayRepo = 'RippleValidatorEditText'
+  bintrayRepo = 'maven'
   bintrayName = 'RippleValidatorEditText'
 
   publishedGroupId = 'me.omidh'
   libraryName = 'RippleValidatorEditText'
-  artifact = 'RippleValidatorEditText'
+  artifact = 'rvelib'
 
   libraryDescription = 'An Input box with different validators and ripple transition'
 
