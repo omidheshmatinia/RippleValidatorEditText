@@ -13,6 +13,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.support.annotation.ColorInt;
+import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -59,6 +60,30 @@ public class RippleValidatorEditText extends LinearLayout{
   private Paint mTransparentPaint;
   private RippleType rippleType = RippleType.IsPlaying;
   private Drawable mLastBorderDrawable;
+
+  public void setText(String txt) {
+    mEditText.setText(txt);
+  }
+
+  public boolean validateWith(RVEValidator validator,Boolean showAnimation) {
+    if(validator==null)
+      throw new NullPointerException("The Validator Should Not Be NULL");
+
+    Boolean isValid=validator.isValid(getText());
+    if(!isValid) {
+      updateViewColor(UIMode.ERROR,validator.getErrorMessage());
+      return false;
+    }
+    if(showAnimation)
+      drawCircle();
+    updateViewColor(UIMode.COMPLETE,"");
+    return true;
+  }
+
+  public void addTextChangedListener(TextWatcher textWatcher) {
+    mEditText.addTextChangedListener(textWatcher);
+  }
+
   private enum RippleType{
     IsPlaying,IsClearing,IsEnded,Nothing
   }
