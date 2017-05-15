@@ -12,6 +12,7 @@
     <attr name="rve_typingColor" format="color"/>
     <attr name="rve_validateOnFocusLost" format="boolean"/>
     <attr name="android:inputType"/>
+    <attr name="android:textColorHint"/>
     <attr name="rve_editTextSize" format="dimension"/>
     <attr name="rve_topRightCornerRadius" format="dimension"/>
     <attr name="rve_topLeftCornerRadius" format="dimension"/>

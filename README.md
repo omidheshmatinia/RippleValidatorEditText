@@ -1,5 +1,5 @@
- [ ![Download](https://api.bintray.com/packages/omidheshmatinia/maven/RippleValidatorEditText/images/download.svg) ](https://bintray.com/omidheshmatinia/maven/RippleValidatorEditText/_latestVersion)
-
+ [ ![Latest JCenter Version](https://api.bintray.com/packages/omidheshmatinia/maven/RippleValidatorEditText/images/download.svg) ](https://bintray.com/omidheshmatinia/maven/RippleValidatorEditText/_latestVersion)  [![Twitter](https://img.shields.io/badge/Twitter-@Smartiiiiz-blue.svg?style=flat)](http://twitter.com/Smartiiiiz)
+![Platform](https://img.shields.io/badge/Platform-Android-green.svg) ![Minimun Android Sdk Version](https://img.shields.io/badge/min--sdk-11-yellowgreen.svg)
 # RippleValidatorEditText
 An Input box with different validators and ripple transition for android (under development)
 
@@ -9,7 +9,30 @@ An Input box with different validators and ripple transition for android (under 
 # Setup
 ## 1. Provide the gradle dependency
 ```gradle
-compile 'me.omidh:rvelib:0.0.2'
+compile 'me.omidh:rvelib:0.0.3'
+```
+## 2. Sample
+
+```xml
+ <me.omidh.ripplevalidatoredittext.RippleValidatorEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:rve_hint="My Sample Hint"
+        app:rve_font="fonts/iran_sans_mobile.ttf"
+        app:rve_helperTextSize="12sp"
+        app:rve_editTextSize="14sp"
+        app:rve_topLeftCornerRadius="4dp"
+        app:rve_bottomLeftCornerRadius="0dp"
+        app:rve_bottomRightCornerRadius="0dp"
+        app:rve_topRightCornerRadius="4dp"
+        app:rve_strokeWidth="1dp"
+        android:inputType="number"
+        android:textColorHint="#80222222"
+        app:rve_normalColor="#222222"
+        app:rve_typingColor="#555555"
+        app:rve_errorColor="#EF5350"
+        app:rve_validColor="#66BB6A"
+        app:rve_editTextColor="#222222"/>
 ```
 
 ## Todo :

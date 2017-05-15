@@ -44,6 +44,7 @@ public class RippleValidatorEditText extends LinearLayout{
   private int mWarningColor = Color.YELLOW ;
   private int mEditTextInputType =  EditorInfo.TYPE_NULL;
   private int mEditTextColor = Color.BLACK ;
+  private int mHintColor = Color.BLACK ;
   private int mHelperTextSize = 10;
   private int mStrokeWidth = 0;
   private int mEditTextSize = 10;
@@ -163,6 +164,7 @@ public class RippleValidatorEditText extends LinearLayout{
       //if(!isInEditMode()) {
       TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.RippleValidatorEditText);
       mEditTextInputType = a.getInt(R.styleable.RippleValidatorEditText_android_inputType, EditorInfo.TYPE_NULL);
+      mHintColor = a.getColor(R.styleable.RippleValidatorEditText_android_textColorHint, mHintColor);
       mAutoValidate = a.getBoolean(R.styleable.RippleValidatorEditText_rve_validateOnFocusLost,mAutoValidate);
       mHintText = a.getString(R.styleable.RippleValidatorEditText_rve_hint);
       mEditTextGravity = a.getInt(R.styleable.RippleValidatorEditText_rve_editTextGravity,mEditTextGravity);
@@ -229,6 +231,7 @@ public class RippleValidatorEditText extends LinearLayout{
     mEditText.setTextSize(TypedValue.COMPLEX_UNIT_PX,mEditTextSize);
     mEditText.setBackgroundColor(Color.parseColor("#00000000"));
     mEditText.setTextColor(mEditTextColor);
+    mEditText.setHintTextColor(mHintColor);
     mEditText.setInputType(mEditTextInputType);
     mEditText.setOnFocusChangeListener(new OnFocusChangeListener() {
       @Override public void onFocusChange(View v, boolean hasFocus) {
