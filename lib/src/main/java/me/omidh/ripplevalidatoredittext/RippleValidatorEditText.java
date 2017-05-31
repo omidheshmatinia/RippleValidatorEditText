@@ -43,6 +43,7 @@ public class RippleValidatorEditText extends LinearLayout{
   private int mErrorColor = Color.RED ;
   private int mWarningColor = Color.YELLOW ;
   private int mEditTextInputType =  EditorInfo.TYPE_NULL;
+  private int mImeOptions =  0;
   private int mEditTextColor = Color.BLACK ;
   private int mHintColor = Color.BLACK ;
   private int mHelperTextSize = 10;
@@ -61,6 +62,7 @@ public class RippleValidatorEditText extends LinearLayout{
   private Paint mTransparentPaint;
   private RippleType rippleType = RippleType.IsPlaying;
   private Drawable mLastBorderDrawable;
+  private int[] mNextFocusIds = new int[]{0,0,0,0,0}; //{ Down , Left , Up , Right , Forward}
 
   public void setText(String txt) {
     mEditText.setText(txt);
@@ -164,6 +166,12 @@ public class RippleValidatorEditText extends LinearLayout{
       //if(!isInEditMode()) {
       TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.RippleValidatorEditText);
       mEditTextInputType = a.getInt(R.styleable.RippleValidatorEditText_android_inputType, EditorInfo.TYPE_NULL);
+      mNextFocusIds[0] = a.getResourceId(R.styleable.RippleValidatorEditText_android_nextFocusDown, 0);
+      mNextFocusIds[1] = a.getResourceId(R.styleable.RippleValidatorEditText_android_nextFocusLeft, 0);
+      mNextFocusIds[2] = a.getResourceId(R.styleable.RippleValidatorEditText_android_nextFocusUp, 0);
+      mNextFocusIds[3] = a.getResourceId(R.styleable.RippleValidatorEditText_android_nextFocusRight, 0);
+      mNextFocusIds[4] = a.getResourceId(R.styleable.RippleValidatorEditText_android_nextFocusForward, 0);
+      mImeOptions = a.getInt(R.styleable.RippleValidatorEditText_android_imeOptions, 0);
       mHintColor = a.getColor(R.styleable.RippleValidatorEditText_android_textColorHint, mHintColor);
       mAutoValidate = a.getBoolean(R.styleable.RippleValidatorEditText_rve_validateOnFocusLost,mAutoValidate);
       mHintText = a.getString(R.styleable.RippleValidatorEditText_rve_hint);
@@ -197,6 +205,14 @@ public class RippleValidatorEditText extends LinearLayout{
     mTransparentPaint=new Paint();
     mTransparentPaint.setColor(Color.parseColor("#00000000"));
     mTransparentPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+
+    // To gain focus on edit text if user used next focus
+    this.setOnFocusChangeListener(new OnFocusChangeListener() {
+      @Override public void onFocusChange(View v, boolean hasFocus) {
+        if(hasFocus)
+          mEditText.requestFocus();
+      }
+    });
 
     this.setOrientation(VERTICAL);
     mEditText=new EditText(getContext());
@@ -233,6 +249,7 @@ public class RippleValidatorEditText extends LinearLayout{
     mEditText.setTextColor(mEditTextColor);
     mEditText.setHintTextColor(mHintColor);
     mEditText.setInputType(mEditTextInputType);
+    mEditText.setImeOptions(mImeOptions);
     mEditText.setOnFocusChangeListener(new OnFocusChangeListener() {
       @Override public void onFocusChange(View v, boolean hasFocus) {
         if(!hasFocus)
@@ -259,11 +276,39 @@ public class RippleValidatorEditText extends LinearLayout{
       mHelperTextView.setTypeface(mTypeFace);
       mEditText.setTypeface(mTypeFace);
     }
+    setupNextFocusViews();
     updateViewColor(UIMode.NORMAL,"");
     setBackGroundOfLayout(getShapeBackground(mNormalColor));
     this.addView(mHelperTextView);
     this.addView(mEditText);
     this.setGravity(Gravity.CENTER);
+  }
+
+  /**
+   * Setup Next focus ids which are set in xml
+   */
+  private void setupNextFocusViews() {
+    for(int i=0;i<mNextFocusIds.length;i++){
+      if(mNextFocusIds[i]==0)
+        continue;
+      switch (i){
+        case 0:
+          mEditText.setNextFocusDownId(mNextFocusIds[i]);
+          break;
+        case 1:
+          mEditText.setNextFocusLeftId(mNextFocusIds[i]);
+          break;
+        case 2:
+          mEditText.setNextFocusUpId(mNextFocusIds[i]);
+          break;
+        case 3:
+          mEditText.setNextFocusRightId(mNextFocusIds[i]);
+          break;
+        case 4:
+          mEditText.setNextFocusForwardId(mNextFocusIds[i]);
+          break;
+      }
+    }
   }
 
   private void updateViewColor(@UIMode.UiType int type,String txt) {

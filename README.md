@@ -5,11 +5,10 @@ An Input box with different validators and ripple transition for android (under 
 
 # NOTE :  Under development
 
-
 # Setup
 ## 1. Provide the gradle dependency
 ```gradle
-compile 'me.omidh:rvelib:0.0.3'
+compile 'me.omidh:rvelib:0.5.0'
 ```
 ## 2. Sample
 
@@ -27,6 +26,9 @@ compile 'me.omidh:rvelib:0.0.3'
         app:rve_topRightCornerRadius="4dp"
         app:rve_strokeWidth="1dp"
         android:inputType="number"
+        android:nextFocusDown="@+id/editText_next"
+        android:nextFocusForward="@+id/editText_next"
+        android:imeOptions="actionNext"
         android:textColorHint="#80222222"
         app:rve_normalColor="#222222"
         app:rve_typingColor="#555555"
@@ -35,10 +37,20 @@ compile 'me.omidh:rvelib:0.0.3'
         app:rve_editTextColor="#222222"/>
 ```
 
+# Tips
+### Focus
+If you want to ues focus attributes, do not forget to use
+
+```xml
+android:imeOptions="actionNext"
+```
+
 ## Todo :
  - different ripple effect for each state
+ - add animation for error text entrance
  - accept more parameter from attr
  - cleaning the code
+ - adding enums to style for android related attributes
 
 # Developed By
 

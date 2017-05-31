@@ -13,6 +13,12 @@
     <attr name="rve_validateOnFocusLost" format="boolean"/>
     <attr name="android:inputType"/>
     <attr name="android:textColorHint"/>
+    <attr name="android:nextFocusDown"/>
+    <attr name="android:nextFocusLeft"/>
+    <attr name="android:nextFocusUp"/>
+    <attr name="android:nextFocusRight"/>
+    <attr name="android:nextFocusForward"/>
+    <attr name="android:imeOptions"/>
     <attr name="rve_editTextSize" format="dimension"/>
     <attr name="rve_topRightCornerRadius" format="dimension"/>
     <attr name="rve_topLeftCornerRadius" format="dimension"/>
