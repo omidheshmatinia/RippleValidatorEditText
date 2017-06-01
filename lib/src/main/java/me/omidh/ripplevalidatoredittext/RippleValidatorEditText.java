@@ -78,6 +78,14 @@ public class RippleValidatorEditText extends LinearLayout{
     mHelperAnimation=animation;
   }
 
+  /**
+   * Set Editor listener for handling keyboard Extra commands
+   * @param listener
+   */
+  public void setOnEditorActionListener(EditText.OnEditorActionListener listener){
+    mEditText.setOnEditorActionListener(listener);
+  }
+
   public boolean validateWith(RVEValidator validator,Boolean showAnimation) {
     if(validator==null)
       throw new NullPointerException("The Validator Should Not Be NULL");
