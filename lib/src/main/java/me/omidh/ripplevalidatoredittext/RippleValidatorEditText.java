@@ -40,6 +40,7 @@ public class RippleValidatorEditText extends LinearLayout{
   List<RVEValidator> mValidators=new ArrayList<>();
   private int mValidColor = Color.GREEN ;
   private int mNormalColor = Color.BLUE ;
+  private int mBackgroundColor = Color.TRANSPARENT ;
   private int mTypingColor = Color.MAGENTA ;
   private int mErrorColor = Color.RED ;
   private int mWarningColor = Color.YELLOW ;
@@ -192,6 +193,7 @@ public class RippleValidatorEditText extends LinearLayout{
       mImeOptions = a.getInt(R.styleable.RippleValidatorEditText_android_imeOptions, 0);
       mHelperAnimation = a.getResourceId(R.styleable.RippleValidatorEditText_rve_helperAnimation,R.anim.fade_in_slide_right);
       mHintColor = a.getColor(R.styleable.RippleValidatorEditText_android_textColorHint, mHintColor);
+      mBackgroundColor = a.getColor(R.styleable.RippleValidatorEditText_rve_backgroundColor, mBackgroundColor);
       mAutoValidate = a.getBoolean(R.styleable.RippleValidatorEditText_rve_validateOnFocusLost,mAutoValidate);
       mHintText = a.getString(R.styleable.RippleValidatorEditText_rve_hint);
       mEditTextGravity = a.getInt(R.styleable.RippleValidatorEditText_rve_editTextGravity,mEditTextGravity);
@@ -378,6 +380,7 @@ public class RippleValidatorEditText extends LinearLayout{
     GradientDrawable shape =  new GradientDrawable();
     ((GradientDrawable)shape.mutate()).setCornerRadii( mCornerRadius );
     shape.setStroke(mStrokeWidth,color);
+    shape.setColor(mBackgroundColor);
     mLastBorderDrawable = shape;
     return shape;
   }

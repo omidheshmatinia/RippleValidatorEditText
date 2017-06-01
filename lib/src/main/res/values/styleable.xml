@@ -10,6 +10,7 @@
     <attr name="rve_errorColor" format="color"/>
     <attr name="rve_validColor" format="color"/>
     <attr name="rve_typingColor" format="color"/>
+    <attr name="rve_backgroundColor" format="color"/>
     <attr name="rve_validateOnFocusLost" format="boolean"/>
     <attr name="rve_helperAnimation" format="reference"/>
     <attr name="android:inputType"/>
