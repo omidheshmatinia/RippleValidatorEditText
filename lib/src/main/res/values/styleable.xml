@@ -11,6 +11,7 @@
     <attr name="rve_validColor" format="color"/>
     <attr name="rve_typingColor" format="color"/>
     <attr name="rve_validateOnFocusLost" format="boolean"/>
+    <attr name="rve_helperAnimation" format="reference"/>
     <attr name="android:inputType"/>
     <attr name="android:textColorHint"/>
     <attr name="android:nextFocusDown"/>

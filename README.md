@@ -8,7 +8,7 @@ An Input box with different validators and ripple transition for android (under 
 # Setup
 ## 1. Provide the gradle dependency
 ```gradle
-compile 'me.omidh:rvelib:0.5.0'
+compile 'me.omidh:rvelib:0.5.1'
 ```
 ## 2. Sample
 
@@ -39,7 +39,7 @@ compile 'me.omidh:rvelib:0.5.0'
 
 # Tips
 ### Focus
-If you want to ues focus attributes, do not forget to use
+If you want to ues focus attributes, do not forget to add below line in your xml
 
 ```xml
 android:imeOptions="actionNext"

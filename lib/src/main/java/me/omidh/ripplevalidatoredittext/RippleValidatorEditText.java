@@ -12,6 +12,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
+import android.support.annotation.AnimRes;
 import android.support.annotation.ColorInt;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
@@ -63,9 +64,18 @@ public class RippleValidatorEditText extends LinearLayout{
   private RippleType rippleType = RippleType.IsPlaying;
   private Drawable mLastBorderDrawable;
   private int[] mNextFocusIds = new int[]{0,0,0,0,0}; //{ Down , Left , Up , Right , Forward}
+  private int mHelperAnimation  = R.anim.fade_in_slide_right;
 
   public void setText(String txt) {
     mEditText.setText(txt);
+  }
+
+  /**
+   * Set entrance animation of helper text when error happen
+   * @param animation
+   */
+  public void setHelperTextAnimation(@AnimRes int animation){
+    mHelperAnimation=animation;
   }
 
   public boolean validateWith(RVEValidator validator,Boolean showAnimation) {
@@ -172,6 +182,7 @@ public class RippleValidatorEditText extends LinearLayout{
       mNextFocusIds[3] = a.getResourceId(R.styleable.RippleValidatorEditText_android_nextFocusRight, 0);
       mNextFocusIds[4] = a.getResourceId(R.styleable.RippleValidatorEditText_android_nextFocusForward, 0);
       mImeOptions = a.getInt(R.styleable.RippleValidatorEditText_android_imeOptions, 0);
+      mHelperAnimation = a.getResourceId(R.styleable.RippleValidatorEditText_rve_helperAnimation,R.anim.fade_in_slide_right);
       mHintColor = a.getColor(R.styleable.RippleValidatorEditText_android_textColorHint, mHintColor);
       mAutoValidate = a.getBoolean(R.styleable.RippleValidatorEditText_rve_validateOnFocusLost,mAutoValidate);
       mHintText = a.getString(R.styleable.RippleValidatorEditText_rve_hint);
@@ -209,8 +220,12 @@ public class RippleValidatorEditText extends LinearLayout{
     // To gain focus on edit text if user used next focus
     this.setOnFocusChangeListener(new OnFocusChangeListener() {
       @Override public void onFocusChange(View v, boolean hasFocus) {
-        if(hasFocus)
+        if(hasFocus) {
+          mHelperTextView.setVisibility(GONE);
+          mEditText.setVisibility(VISIBLE);
           mEditText.requestFocus();
+          showKeyboard(getContext(),mEditText);
+        }
       }
     });
 
