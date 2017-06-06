@@ -27,9 +27,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import me.omidh.ripplevalidatoredittext.util.KeyboardUtility;
 import me.omidh.ripplevalidatoredittext.validator.RVEValidator;
-
-import static me.omidh.ripplevalidatoredittext.KeyboardUtility.showKeyboard;
 
 /**
  * Created by Omid Heshmatinia on 5/7/2017.
@@ -234,7 +233,7 @@ public class RippleValidatorEditText extends LinearLayout{
           mHelperTextView.setVisibility(GONE);
           mEditText.setVisibility(VISIBLE);
           mEditText.requestFocus();
-          showKeyboard(getContext(),mEditText);
+          KeyboardUtility.showKeyboard(getContext(),mEditText);
         }
       }
     });
@@ -294,7 +293,7 @@ public class RippleValidatorEditText extends LinearLayout{
         mEditText.setVisibility(VISIBLE);
         mEditText.requestFocus();
         //showKeyboard();
-        showKeyboard(getContext(),mEditText);
+        KeyboardUtility.showKeyboard(getContext(),mEditText);
       }
     });
     if(mTypeFace != null){
@@ -415,5 +414,14 @@ public class RippleValidatorEditText extends LinearLayout{
     mValidators = Arrays.asList(validator);
   }
 
+  public EditText getEditText(){
+    return mEditText;
+  }
 
+  /**
+   * Hide keyboard
+   */
+  public void hideKeyboard(){
+    KeyboardUtility.hideKeyboard(getContext(),mEditText);
+  }
 }
