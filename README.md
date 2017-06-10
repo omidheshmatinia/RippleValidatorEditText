@@ -4,6 +4,7 @@
 An Input box with different validators and ripple transition for android (under development)
 
 ##ScreenShots
+
 <img src="/sample/sample1.gif"/>
 
 # NOTE :  Under development
