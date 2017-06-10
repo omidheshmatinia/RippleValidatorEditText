@@ -12,6 +12,8 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
+import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.AnimRes;
 import android.support.annotation.ColorInt;
 import android.text.TextWatcher;
@@ -423,5 +425,23 @@ public class RippleValidatorEditText extends LinearLayout{
    */
   public void hideKeyboard(){
     KeyboardUtility.hideKeyboard(getContext(),mEditText);
+  }
+
+  @Override protected Parcelable onSaveInstanceState() {
+    super.onSaveInstanceState();
+    Bundle bundle = new Bundle();
+    bundle.putParcelable("superState", super.onSaveInstanceState());
+    bundle.putString("editText_title",mEditText.getText().toString());
+    return bundle;
+  }
+
+  @Override protected void onRestoreInstanceState(Parcelable state) {
+    if ( state!=null && state instanceof Bundle)
+    {
+      Bundle bundle = (Bundle) state;
+      mEditText.setText(bundle.getString("editText_title"));
+      state = bundle.getParcelable("superState");
+    }
+    super.onRestoreInstanceState(state);
   }
 }

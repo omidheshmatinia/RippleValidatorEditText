@@ -8,7 +8,7 @@ An Input box with different validators and ripple transition for android (under 
 # Setup
 ## 1. Provide the gradle dependency
 ```gradle
-compile 'me.omidh:rvelib:0.5.17'
+compile 'me.omidh:rvelib:0.5.18'
 ```
 ## 2. Sample
 
@@ -51,6 +51,8 @@ android:imeOptions="actionNext"
  - accept more parameter from attr
  - cleaning the code
  - adding enums to style for android related attributes
+ - add validators wiki to readme file
+ - make a few samples
 
 # Developed By
 
