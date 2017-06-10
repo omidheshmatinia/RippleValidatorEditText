@@ -22,6 +22,8 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -197,7 +199,8 @@ public class RippleValidatorEditText extends LinearLayout{
       mBackgroundColor = a.getColor(R.styleable.RippleValidatorEditText_rve_backgroundColor, mBackgroundColor);
       mAutoValidate = a.getBoolean(R.styleable.RippleValidatorEditText_rve_validateOnFocusLost,mAutoValidate);
       mHintText = a.getString(R.styleable.RippleValidatorEditText_rve_hint);
-      mEditTextGravity = a.getInt(R.styleable.RippleValidatorEditText_rve_editTextGravity,mEditTextGravity);
+      mEditTextGravity = a.getInteger(R.styleable.RippleValidatorEditText_rve_editTextGravity,mEditTextGravity);
+      mHelperTextGravity = a.getInteger(R.styleable.RippleValidatorEditText_rve_helperTextGravity,mHelperTextGravity);
       String typeface=a.getString(R.styleable.RippleValidatorEditText_rve_font);
       if(typeface!=null){
         mTypeFace = Typeface.createFromAsset(getContext().getAssets(),typeface);
@@ -246,6 +249,7 @@ public class RippleValidatorEditText extends LinearLayout{
         ViewGroup.LayoutParams.WRAP_CONTENT);
     mEditText.setPadding(getPaddingLeft(),getPaddingTop(),getPaddingRight(),getPaddingBottom());
     lp.weight = 1;
+    lp.gravity = mEditTextGravity;
     mEditText.setLayoutParams(lp);
     //mEditText.addTextChangedListener(new TextWatcher() {
     //  @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -354,6 +358,7 @@ public class RippleValidatorEditText extends LinearLayout{
       case UIMode.ERROR:
         mEditText.setVisibility(GONE);
         color = mErrorColor;
+        showEntranceAnimation();
         visibility=VISIBLE;
         break;
       case UIMode.TYPING:
@@ -384,6 +389,13 @@ public class RippleValidatorEditText extends LinearLayout{
     shape.setColor(mBackgroundColor);
     mLastBorderDrawable = shape;
     return shape;
+  }
+  /**
+   * Enter Error helper text With Animation
+   */
+  private void showEntranceAnimation() {
+    Animation viewAnimation= AnimationUtils.loadAnimation(getContext(),mHelperAnimation);
+    mHelperTextView.startAnimation(viewAnimation);
   }
 
   private float convertDipToPixels(float dips) {

@@ -26,15 +26,15 @@
     <attr name="rve_topLeftCornerRadius" format="dimension"/>
     <attr name="rve_bottomRightCornerRadius" format="dimension"/>
     <attr name="rve_bottomLeftCornerRadius" format="dimension"/>
-    <attr name="rve_helperTextGravity" format="enum">
-      <enum name="right" value="5"/>
-      <enum name="left" value="3"/>
-      <enum name="center" value="17"/>
+    <attr name="rve_helperTextGravity">
+      <flag name="right" value="5"/>
+      <flag name="left" value="3"/>
+      <flag name="center" value="17"/>
     </attr>
-    <attr name="rve_editTextGravity" format="enum">
-      <enum name="right" value="5"/>
-      <enum name="left" value="3"/>
-      <enum name="center" value="17"/>
+    <attr name="rve_editTextGravity">
+      <flag name="right" value="5"/>
+      <flag name="left" value="3"/>
+      <flag name="center" value="17"/>
     </attr>
   </declare-styleable>
 </resources>

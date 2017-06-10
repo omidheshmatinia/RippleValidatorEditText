@@ -3,12 +3,15 @@
 # RippleValidatorEditText
 An Input box with different validators and ripple transition for android (under development)
 
+##ScreenShots
+<img src="/sample/sample1.gif"/>
+
 # NOTE :  Under development
 
 # Setup
 ## 1. Provide the gradle dependency
 ```gradle
-compile 'me.omidh:rvelib:0.5.18'
+compile 'me.omidh:rvelib:0.7.0'
 ```
 ## 2. Sample
 
@@ -39,6 +42,7 @@ compile 'me.omidh:rvelib:0.5.18'
 ```
 
 # Tips
+
 ### Focus
 If you want to use focus attributes, do not forget to add below line in your xml
 
@@ -52,7 +56,7 @@ android:imeOptions="actionNext"
  - cleaning the code
  - adding enums to style for android related attributes
  - add validators wiki to readme file
- - make a few samples
+ - fix corners when ripple is showing
 
 # Developed By
 
