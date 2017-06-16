@@ -3,11 +3,14 @@ package me.omidh.ripplevalidatoredittext;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
+import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
@@ -33,6 +36,7 @@ import java.util.Arrays;
 import java.util.List;
 import me.omidh.ripplevalidatoredittext.util.KeyboardUtility;
 import me.omidh.ripplevalidatoredittext.validator.RVEValidator;
+
 
 /**
  * Created by Omid Heshmatinia on 5/7/2017.
@@ -129,12 +133,14 @@ public class RippleValidatorEditText extends LinearLayout{
         mLastBorderDrawable.draw(canvas);
         break;
       case IsPlaying:
-        canvas.drawCircle(0,getHeight()/2,mCircleRadius,mCirclePaint);
+//        canvas.drawCircle(0,getHeight()/2,mCircleRadius,mCirclePaint);
+        drawEffectWithBorder(canvas,mCirclePaint);
         mLastBorderDrawable.draw(canvas);
         break;
       case IsClearing:
         canvas.drawColor(mValidColor);
-        canvas.drawCircle(0, getHeight() / 2, mCircleRadius, mTransparentPaint);
+//        canvas.drawCircle(0, getHeight() / 2, mCircleRadius, mTransparentPaint);
+        drawEffectWithBorder(canvas,mTransparentPaint);
         mLastBorderDrawable.draw(canvas);
         break;
       case Nothing:
@@ -143,6 +149,21 @@ public class RippleValidatorEditText extends LinearLayout{
         mLastBorderDrawable.draw(canvas);
         break;
     }
+  }
+
+  private void drawEffectWithBorder(Canvas canvas, Paint mTransparentPaint) {
+    RectF clipBounds = new RectF(canvas.getClipBounds());
+    Path mPath= new Path();
+    mPath.addRoundRect(clipBounds, mCornerRadius, Path.Direction.CW);
+    Bitmap result = Bitmap.createBitmap(getWidth(),getHeight(), Bitmap.Config.ARGB_8888);
+    Canvas tempCanvas = new Canvas(result);
+    Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+    paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
+    canvas.drawCircle(0,getHeight()/2,mCircleRadius,mTransparentPaint);
+    canvas.drawPath(mPath, paint);
+    paint.setXfermode(null);
+    //Draw result after performing masking
+    canvas.drawBitmap(result, 0, 0, new Paint());
   }
 
   private void drawEmptyCircle(){

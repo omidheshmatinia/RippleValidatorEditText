@@ -14,7 +14,7 @@ ext {
   siteUrl = 'https://github.com/omidheshmatinia/RippleValidatorEditText'
   gitUrl = 'https://github.com/omidheshmatinia/RippleValidatorEditText.git'
 
-  libraryVersion = '0.7.0'
+  libraryVersion = '0.8.0'
 
   developerId = 'omidheshmatinia'
   developerName = 'Omid Heshmatinia'
@@ -33,7 +33,7 @@ android {
     minSdkVersion 11
     targetSdkVersion 25
     versionCode 1
-    versionName "0.7.0"
+    versionName "0.8.0"
 
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
   }

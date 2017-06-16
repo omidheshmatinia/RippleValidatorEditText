@@ -12,7 +12,7 @@ An Input box with different validators and ripple transition for android (under 
 # Setup
 ## 1. Provide the gradle dependency
 ```gradle
-compile 'me.omidh:rvelib:0.7.0'
+compile 'me.omidh:rvelib:0.8.0'
 ```
 ## 2. Sample
 
@@ -53,11 +53,9 @@ android:imeOptions="actionNext"
 
 ## Todo :
  - different ripple effect for each state
- - accept more parameter from attr
  - cleaning the code
  - adding enums to style for android related attributes
  - add validators wiki to readme file
- - fix corners when ripple is showing
 
 # Developed By
 
