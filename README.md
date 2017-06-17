@@ -1,13 +1,11 @@
  [ ![Latest JCenter Version](https://api.bintray.com/packages/omidheshmatinia/maven/RippleValidatorEditText/images/download.svg) ](https://bintray.com/omidheshmatinia/maven/RippleValidatorEditText/_latestVersion)  [![Twitter](https://img.shields.io/badge/Twitter-@Smartiiiiz-blue.svg?style=flat)](http://twitter.com/Smartiiiiz)
 ![Platform](https://img.shields.io/badge/Platform-Android-green.svg) ![Minimun Android Sdk Version](https://img.shields.io/badge/min--sdk-11-yellowgreen.svg)
 # RippleValidatorEditText
-An Input box with different validators and ripple transition for android (under development)
+An Input box with different validators and ripple transition for android. It let you to define custom animation for error text entrance and also comes up with seven ready validator.
 
-##ScreenShots
+## ScreenShots
 
 <img src="/sample/sample1.gif"/>
-
-# NOTE :  Under development
 
 # Setup
 ## 1. Provide the gradle dependency
@@ -42,6 +40,13 @@ compile 'me.omidh:rvelib:0.8.0'
         app:rve_editTextColor="#222222"/>
 ```
 
+## Validator
+This Library contains 7 ready validator. It also let you to write you custom validator. 
+
+**EMPTY** , **EMAIL** , **EQUAL** , **BEGIN** , **END** , **MIN_LENGTH** , **PHONE**
+
+For a sample code please with the [Validator wiki page](https://github.com/omidheshmatinia/RippleValidatorEditText/wiki/Validators)
+
 # Tips
 
 ### Focus
@@ -55,7 +60,6 @@ android:imeOptions="actionNext"
  - different ripple effect for each state
  - cleaning the code
  - adding enums to style for android related attributes
- - add validators wiki to readme file
 
 # Developed By
 
