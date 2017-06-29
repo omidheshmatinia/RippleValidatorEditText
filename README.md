@@ -32,6 +32,7 @@ compile 'me.omidh:rvelib:0.8.01'
         android:nextFocusForward="@+id/editText_next"
         android:imeOptions="actionNext"
         android:textColorHint="#80222222"
+        app:rve_helperAnimation="@anim/fab_slide_in_from_right"
         app:rve_normalColor="#222222"
         app:rve_typingColor="#555555"
         app:rve_errorColor="#EF5350"
@@ -45,15 +46,23 @@ This Library contains 7 ready validators. It also let you to write you custom va
 
 **EMPTY** , **EMAIL** , **EQUAL** , **BEGIN** , **END** , **MIN_LENGTH** , **PHONE**
 
-For a sample code please see the [Validator wiki page](https://github.com/omidheshmatinia/RippleValidatorEditText/wiki/Validators)
+For a sample code please visit the [Validator wiki page](https://github.com/omidheshmatinia/RippleValidatorEditText/wiki/Validators)
 
+## Error Text Entrance Animation
+You can set your desired animation for entrance of the error text.
+
+it can be set in XML :
+```xml
+   app:rve_helperAnimation="@anim/fab_slide_in_from_right"
+```
+      
 # Tips
 
 ### Focus
 If you want to use focus attributes, do not forget to add below line in your xml
 
 ```xml
-android:imeOptions="actionNext"
+   android:imeOptions="actionNext"
 ```
 
 ## Todo :
