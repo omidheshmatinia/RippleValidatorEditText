@@ -10,7 +10,7 @@ An Input box with different validators and ripple transition for android. It let
 # Setup
 ## 1. Provide the gradle dependency
 ```gradle
-compile 'me.omidh:rvelib:0.8.0'
+compile 'me.omidh:rvelib:0.8.01'
 ```
 ## 2. Sample
 
@@ -45,7 +45,7 @@ This Library contains 7 ready validators. It also let you to write you custom va
 
 **EMPTY** , **EMAIL** , **EQUAL** , **BEGIN** , **END** , **MIN_LENGTH** , **PHONE**
 
-For a sample code please with the [Validator wiki page](https://github.com/omidheshmatinia/RippleValidatorEditText/wiki/Validators)
+For a sample code please see the [Validator wiki page](https://github.com/omidheshmatinia/RippleValidatorEditText/wiki/Validators)
 
 # Tips
 
